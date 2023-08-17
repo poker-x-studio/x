@@ -2,7 +2,7 @@
 功能：计时器计数类型
 说明：
 */
-package ticker
+package xticker
 
 type TICKER_COUNT_TYPE int
 

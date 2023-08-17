@@ -2,7 +2,7 @@
 功能：计时器封装
 说明：[计时器计数]默认一直增加，在调用处理函数后，返回的类型，可以重置 [计时器计数]
 */
-package ticker
+package xticker
 
 import (
 	"fmt"
