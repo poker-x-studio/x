@@ -40,6 +40,20 @@ func Test2(t *testing.T) {
 	fmt.Println(path.Ext(files))      //获取路径中的文件的后缀 .txt
 }
 
+func Test_filename(t *testing.T) {
+
+	for i := 0; i < 10; i++ {
+		filename := Rand_filename(10)
+		fmt.Println(filename)
+	}
+
+	for i := 0; i < 10; i++ {
+		filename := Date_filename()
+		fmt.Println(filename)
+	}
+
+}
+
 //-----------------------------------------------
 //					the end
 //-----------------------------------------------

@@ -11,13 +11,10 @@ import (
 
 	"github.com/poker-x-studio/x/xdebug"
 	"github.com/poker-x-studio/x/xpath"
+	"github.com/poker-x-studio/x/xutils"
 
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm/logger"
-)
-
-const (
-	LOG_FOLDER = "log"
 )
 
 // 创建文件
@@ -29,7 +26,7 @@ func New_mysql_logger(filename string) (logger.Interface, func(), error) {
 
 	//目录
 	log_folder := xpath.Executable_dir()
-	log_folder = path.Join(log_folder, LOG_FOLDER)
+	log_folder = path.Join(log_folder, xutils.LOG_FOLDER)
 
 	err := xpath.Mkdir(log_folder)
 	if err != nil {

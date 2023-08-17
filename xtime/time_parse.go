@@ -17,19 +17,19 @@ import (
 // 解析时间
 // 格式要求 12:30 或 10:00 或 0:00 或 23:00
 func Time_parse(t string) (*time.Time, error) {
-	split_txts := strings.Split(t, ":")
-	if len(split_txts) < 2 {
+	txts := strings.Split(t, ":")
+	if len(txts) < 2 {
 		return nil, errors.New("时间格式错误,正确举例:12:30 或 10:00 或 0:00 或 23:00")
 	}
 
 	//小时
-	h, err := strconv.Atoi(split_txts[0])
+	h, err := strconv.Atoi(txts[0])
 	if err != nil {
 		return nil, err
 	}
 
 	//分钟
-	min, err := strconv.Atoi(split_txts[1])
+	min, err := strconv.Atoi(txts[1])
 	if err != nil {
 		return nil, err
 	}
@@ -47,12 +47,12 @@ func Time_parse(t string) (*time.Time, error) {
 		return nil, err
 	}
 
-	the_time, err := time.ParseInLocation(xutils.DATE_FORMAT, str_time, loc)
+	local_time, err := time.ParseInLocation(xutils.DATE_FORMAT, str_time, loc)
 	if err != nil {
 		fmt.Println(err.Error())
 		return nil, err
 	}
-	return &the_time, nil
+	return &local_time, nil
 }
 
 //-----------------------------------------------

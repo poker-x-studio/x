@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	ALL_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	ALL_CHARS = "abcdefghijklmnopqrstuvwxyz0123456789"
 )
 
 // 随机文件名
@@ -22,12 +22,12 @@ func Rand_filename(length int) string {
 	}
 	chars := strings.Split(ALL_CHARS, "")
 	len := len(chars)
-	r := rand.New(rand.NewSource(time.Now().Unix()))
-	var rchar string = ""
+	r := rand.New(rand.NewSource(time.Now().UnixMicro()))
+	var txt string = ""
 	for i := 0; i < length; i++ {
-		rchar = rchar + chars[r.Intn(len)]
+		txt = txt + chars[r.Intn(len)]
 	}
-	return rchar
+	return txt
 }
 
 // 日期文件名

@@ -9,17 +9,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/poker-x-studio/x/ticker/TICKER_COUNT_TYPE"
 	"github.com/poker-x-studio/x/xdebug"
 )
 
 type TickerHandler struct {
 }
 
-func (t *TickerHandler) On_ticker(ticker_count int) TICKER_COUNT_TYPE.TYPE {
+func (t *TickerHandler) On_ticker(ticker_count int) TICKER_COUNT_TYPE {
 	fmt.Printf("On_ticker(),ticker_count:%d,goid:%d\r\n", ticker_count, xdebug.Go_id())
 
-	return TICKER_COUNT_TYPE.INCREASE
+	return INCREASE
 }
 
 func Test(t *testing.T) {

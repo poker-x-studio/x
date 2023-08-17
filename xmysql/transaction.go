@@ -1,8 +1,8 @@
 /*
-功能：gorm事务
+功能：mysql事务
 说明：
 */
-package xdatabase
+package xmysql
 
 import (
 	"errors"
@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// 事务
+// mysql事务
 func Mysql_transaction(db *gorm.DB, transFunc func(*gorm.DB) error) (err error) {
 	tx := db.Begin()
 	err = errors.New("transaction begin")

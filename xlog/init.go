@@ -11,13 +11,13 @@ import (
 
 	"github.com/poker-x-studio/x/xdebug"
 	"github.com/poker-x-studio/x/xpath"
+	"github.com/poker-x-studio/x/xutils"
 
 	"github.com/sirupsen/logrus"
 )
 
 const (
-	LOG_FOLDER = "log"
-	TAG        = "TAG"
+	TAG = "TAG"
 )
 
 // 设置日志等级
@@ -43,7 +43,7 @@ func Init_logrus(filename string) {
 	})
 
 	dir := xpath.Executable_dir()
-	dir = path.Join(dir, LOG_FOLDER)
+	dir = path.Join(dir, xutils.LOG_FOLDER)
 
 	//创建文件夹
 	xpath.Mkdir(dir)

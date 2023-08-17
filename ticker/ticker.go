@@ -9,7 +9,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/poker-x-studio/x/ticker/TICKER_COUNT_TYPE"
 	"github.com/poker-x-studio/x/xdebug"
 	"github.com/poker-x-studio/x/xdone"
 	"github.com/poker-x-studio/x/xlog"
@@ -18,7 +17,7 @@ import (
 
 // 接口
 type ITickerHandler interface {
-	On_ticker(ticker_count int) TICKER_COUNT_TYPE.TYPE
+	On_ticker(ticker_count int) TICKER_COUNT_TYPE
 }
 
 var ticker_index int //测试使用
@@ -86,7 +85,7 @@ func (t *Ticker) ticker_handle() {
 			//接口调用
 			if t.i_ticker_handler != nil {
 				ticker_count_type := t.i_ticker_handler.On_ticker(t.ticker_count)
-				if ticker_count_type == TICKER_COUNT_TYPE.RESET {
+				if ticker_count_type == RESET {
 					t.ticker_count = 0
 				} else {
 					t.ticker_count++
