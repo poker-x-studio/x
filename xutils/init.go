@@ -2,7 +2,7 @@
 功能：
 说明：
 */
-package x
+package xutils
 
 import (
 	"github.com/poker-x-studio/x/xdebug"

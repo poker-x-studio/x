@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/poker-x-studio/x"
+	"github.com/poker-x-studio/x/xutils"
 
 	"github.com/sirupsen/logrus"
 )
@@ -22,7 +22,7 @@ func TestLog(t *testing.T) {
 	file := "log"
 
 	logrus.SetFormatter(&logrus.TextFormatter{
-		TimestampFormat: x.DATE_FORMAT, //时间格式
+		TimestampFormat: xutils.DATE_FORMAT, //时间格式
 		FullTimestamp:   true,
 	})
 

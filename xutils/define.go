@@ -2,7 +2,7 @@
 功能：定义
 说明：
 */
-package x
+package xutils
 
 const (
 	POKER_X_STUDIO = "Poker X Studio"      //

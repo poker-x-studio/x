@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/poker-x-studio/x"
+	"github.com/poker-x-studio/x/xutils"
 
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/sirupsen/logrus"
@@ -27,7 +27,7 @@ const (
 )
 
 var _DefaultFormatter = &logrus.TextFormatter{
-	TimestampFormat: x.DATE_FORMAT, //时间格式
+	TimestampFormat: xutils.DATE_FORMAT, //时间格式
 	FullTimestamp:   true,
 	DisableColors:   true}
 
@@ -61,7 +61,7 @@ func NewLocalFileHook(dir, filename string, levels []logrus.Level) *LocalFileHoo
 	// WithLinkName为最新的日志建立软连接,以方便随着找到当前日志文件
 	option := rotatelogs.WithLinkName(dir + filename + ".log")
 
-	if runtime.GOOS == x.LINUX {
+	if runtime.GOOS == xutils.LINUX {
 		options = append(options, option)
 	}
 

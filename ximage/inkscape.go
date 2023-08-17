@@ -16,7 +16,7 @@ package ximage
 import (
 	"runtime"
 
-	"github.com/poker-x-studio/x"
+	"github.com/poker-x-studio/x/xutils"
 )
 
 const (
@@ -27,9 +27,9 @@ const (
 // 得到路径
 func get_inkscape() string {
 	inkscape := Inkscape_windows
-	if runtime.GOOS == x.WINDOWS {
+	if runtime.GOOS == xutils.WINDOWS {
 		inkscape = Inkscape_windows
-	} else if runtime.GOOS == x.LINUX {
+	} else if runtime.GOOS == xutils.LINUX {
 		inkscape = Inkscape_ubuntu
 	}
 	return inkscape

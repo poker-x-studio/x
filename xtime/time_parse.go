@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/poker-x-studio/x"
+	"github.com/poker-x-studio/x/xutils"
 )
 
 // 解析时间
@@ -47,7 +47,7 @@ func Time_parse(t string) (*time.Time, error) {
 		return nil, err
 	}
 
-	the_time, err := time.ParseInLocation(x.DATE_FORMAT, str_time, loc)
+	the_time, err := time.ParseInLocation(xutils.DATE_FORMAT, str_time, loc)
 	if err != nil {
 		fmt.Println(err.Error())
 		return nil, err
