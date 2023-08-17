@@ -11,10 +11,11 @@ package time_switch
 import (
 	"fmt"
 	"time"
-	"x/xdebug"
-	"x/xlog"
-	"x/xservice"
-	"x/xtime"
+
+	"github.com/poker-x-studio/x/xdebug"
+	"github.com/poker-x-studio/x/xlog"
+	"github.com/poker-x-studio/x/xservice"
+	"github.com/poker-x-studio/x/xtime"
 )
 
 // 时间开关

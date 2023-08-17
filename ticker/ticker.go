@@ -8,11 +8,12 @@ import (
 	"fmt"
 	"sync"
 	"time"
-	"x/ticker/TICKER_COUNT_TYPE"
-	"x/xdebug"
-	"x/xdone"
-	"x/xlog"
-	"x/xservice"
+
+	"github.com/poker-x-studio/x/ticker/TICKER_COUNT_TYPE"
+	"github.com/poker-x-studio/x/xdebug"
+	"github.com/poker-x-studio/x/xdone"
+	"github.com/poker-x-studio/x/xlog"
+	"github.com/poker-x-studio/x/xservice"
 )
 
 // 接口

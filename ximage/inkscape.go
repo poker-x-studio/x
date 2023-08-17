@@ -15,7 +15,8 @@ package ximage
 
 import (
 	"runtime"
-	"x"
+
+	"github.com/poker-x-studio/x"
 )
 
 const (

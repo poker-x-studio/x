@@ -7,10 +7,11 @@ package xlog
 import (
 	"database/sql"
 	"errors"
-	"x/xlog/async_hook"
-	"x/xlog/local_file_hook"
-	"x/xlog/mysql_hook"
-	"x/xlog/promrus_hook"
+
+	"github.com/poker-x-studio/x/xlog/async_hook"
+	"github.com/poker-x-studio/x/xlog/local_file_hook"
+	"github.com/poker-x-studio/x/xlog/mysql_hook"
+	"github.com/poker-x-studio/x/xlog/promrus_hook"
 
 	"github.com/sirupsen/logrus"
 )

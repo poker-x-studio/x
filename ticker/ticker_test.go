@@ -8,8 +8,9 @@ import (
 	"fmt"
 	"testing"
 	"time"
-	"x/ticker/TICKER_COUNT_TYPE"
-	"x/xdebug"
+
+	"github.com/poker-x-studio/x/ticker/TICKER_COUNT_TYPE"
+	"github.com/poker-x-studio/x/xdebug"
 )
 
 type TickerHandler struct {

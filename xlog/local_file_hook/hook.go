@@ -14,7 +14,8 @@ import (
 	"runtime"
 	"sync"
 	"time"
-	"x"
+
+	"github.com/poker-x-studio/x"
 
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/sirupsen/logrus"

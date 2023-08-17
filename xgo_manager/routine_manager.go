@@ -7,8 +7,9 @@ package xgo_manager
 import (
 	"fmt"
 	"sync"
-	"x/xdebug"
-	"x/xservice"
+
+	"github.com/poker-x-studio/x/xdebug"
+	"github.com/poker-x-studio/x/xservice"
 )
 
 type xGoManager struct {

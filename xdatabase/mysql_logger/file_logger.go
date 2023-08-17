@@ -7,9 +7,10 @@ package mysql_logger
 import (
 	"fmt"
 	"strings"
-	"x/xlog"
-	"x/xlog/async_hook"
-	"x/xlog/local_file_hook"
+
+	"github.com/poker-x-studio/x/xlog"
+	"github.com/poker-x-studio/x/xlog/async_hook"
+	"github.com/poker-x-studio/x/xlog/local_file_hook"
 
 	"github.com/sirupsen/logrus"
 )

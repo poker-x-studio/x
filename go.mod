@@ -1,4 +1,4 @@
-module x
+module github.com/poker-x-studio/x
 
 go 1.20
 

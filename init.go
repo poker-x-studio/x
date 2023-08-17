@@ -5,7 +5,7 @@
 package x
 
 import (
-	"x/xdebug"
+	"github.com/poker-x-studio/x/xdebug"
 
 	"github.com/sirupsen/logrus"
 )

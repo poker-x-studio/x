@@ -8,8 +8,9 @@ import (
 	"fmt"
 	"path"
 	"time"
-	"x/xdebug"
-	"x/xpath"
+
+	"github.com/poker-x-studio/x/xdebug"
+	"github.com/poker-x-studio/x/xpath"
 
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm/logger"

@@ -6,8 +6,9 @@ package xgo_manager
 
 import (
 	"fmt"
-	"x/xdone"
-	"x/xservice"
+
+	"github.com/poker-x-studio/x/xdone"
+	"github.com/poker-x-studio/x/xservice"
 )
 
 type GoHandler func()

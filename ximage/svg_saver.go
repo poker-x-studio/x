@@ -9,7 +9,8 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"x/xpath"
+
+	"github.com/poker-x-studio/x/xpath"
 )
 
 // 存储svg文件

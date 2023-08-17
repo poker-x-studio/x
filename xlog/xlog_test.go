@@ -7,7 +7,8 @@ package xlog
 import (
 	"testing"
 	"time"
-	"x"
+
+	"github.com/poker-x-studio/x"
 
 	"github.com/sirupsen/logrus"
 )
