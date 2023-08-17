@@ -19,12 +19,12 @@ const (
 	mysql_key = "mysql"
 )
 
-// fileLogger ...
-type fileLogger struct {
+// mysqlFileLogger ...
+type mysqlFileLogger struct {
 	key string
 }
 
-func newFileLogger(dir, filename string) (*fileLogger, func(), error) {
+func newFileLogger(dir string, filename string) (*mysqlFileLogger, func(), error) {
 	key := fmt.Sprintf("key_%v", filename)
 
 	fileHook := local_file_hook.NewLocalFileHook(dir, filename, xlog.AllLevels)
@@ -50,14 +50,14 @@ func newFileLogger(dir, filename string) (*fileLogger, func(), error) {
 
 	xlog.StandardLogger().AddHook(asyncHook)
 
-	return &fileLogger{key: key}, func() {
+	return &mysqlFileLogger{key: key}, func() {
 		asyncHook.Close()
 		fileHook.Close()
 	}, nil
 }
 
 // Print ...
-func (f *fileLogger) Printf(msg string, data ...interface{}) {
+func (f *mysqlFileLogger) Printf(msg string, data ...interface{}) {
 	len := len(data)
 	for i := 0; i < len; i++ {
 		v, k := data[i].(string)

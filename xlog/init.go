@@ -42,14 +42,14 @@ func Init_logrus(filename string) {
 		FullTimestamp:   true,
 	})
 
-	dir := xpath.Executable_dir()
-	dir = path.Join(dir, xutils.LOG_FOLDER)
+	executable_dir := xpath.Executable_dir()
+	log_dir := path.Join(executable_dir, xutils.LOG_FOLDER)
 
 	//创建文件夹
-	xpath.Mkdir(dir)
+	xpath.Mkdir(log_dir)
 
 	log_level := logrus.GetLevel()
-	AddLocalFileHook(dir, filename, "", nil, log_level)
+	AddLocalFileHook(log_dir, filename, "", nil, log_level)
 
 	logrus.Info("init")
 }

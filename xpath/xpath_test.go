@@ -16,8 +16,8 @@ func Test(t *testing.T) {
 	path := Executable_path()
 	fmt.Println(path)
 
-	dir := Executable_dir()
-	fmt.Println(dir)
+	executable_dir := Executable_dir()
+	fmt.Println(executable_dir)
 
 	filename := Executable_filename()
 	fmt.Println(filename)
@@ -25,8 +25,8 @@ func Test(t *testing.T) {
 	is_exist := Exist(path)
 	fmt.Println("path:", path, "is_exist:", is_exist)
 
-	is_exist = Exist(dir)
-	fmt.Println("dir:", dir, "is_exist:", is_exist)
+	is_exist = Exist(executable_dir)
+	fmt.Println("executable_dir:", executable_dir, "is_exist:", is_exist)
 
 	path = "C:\\_test_proj\\go\\Telegram\\x1"
 	is_exist = Exist(path)

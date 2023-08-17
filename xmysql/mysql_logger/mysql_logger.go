@@ -25,16 +25,16 @@ func New_mysql_logger(filename string) (logger.Interface, func(), error) {
 	}
 
 	//目录
-	log_folder := xpath.Executable_dir()
-	log_folder = path.Join(log_folder, xutils.LOG_FOLDER)
+	executable_dir := xpath.Executable_dir()
+	log_dir := path.Join(executable_dir, xutils.LOG_FOLDER)
 
-	err := xpath.Mkdir(log_folder)
+	err := xpath.Mkdir(log_dir)
 	if err != nil {
-		panic("New_mysql_logger(),创建目录失败,log_folder:" + log_folder + ",err:" + err.Error())
+		panic("New_mysql_logger(),创建目录失败,log_dir:" + log_dir + ",err:" + err.Error())
 	}
-	logrus.Infof("New_mysql_logger(),创建目录,log_folder:%s", log_folder)
+	logrus.Infof("New_mysql_logger(),创建目录,log_dir:%s", log_dir)
 
-	file_logger, file_logger_close_handler, err := new_mysql_logger(log_folder, filename, log_level)
+	file_logger, file_logger_close_handler, err := new_mysql_logger(log_dir, filename, log_level)
 	if err != nil {
 		panic("new mysql log failed, err:%s" + err.Error())
 	}
@@ -48,7 +48,7 @@ func new_mysql_logger(log_dir string, log_filename string, loglevel logger.LogLe
 
 	file_logger, file_logger_close_handler, err := newFileLogger(log_dir, log_filename)
 	if err != nil {
-		return nil, nil, fmt.Errorf("new mysql log failed, err:%s", err.Error())
+		return nil, nil, fmt.Errorf("new file log failed, err:%s", err.Error())
 	}
 
 	cfg := logger.Config{
