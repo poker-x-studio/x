@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/LyricTian/queue v1.3.0
+	github.com/gomodule/redigo v1.8.9
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/petermattis/goid v0.0.0-20230808133559-b036b712a89b
 	github.com/prometheus/client_golang v1.16.0
