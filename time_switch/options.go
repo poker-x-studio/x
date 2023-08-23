@@ -9,12 +9,14 @@ type HandlerStop func()  //停止函数
 
 type Option func(*TimeSwitch)
 
+//WithStopHandler 停止函数
 func WithStopHandler(stop HandlerStop) Option {
 	return func(t *TimeSwitch) {
 		t.handler_stop = stop
 	}
 }
 
+//WithStarHandler 开启函数
 func WithStarHandler(start HandlerStart) Option {
 	return func(t *TimeSwitch) {
 		t.handler_start = start

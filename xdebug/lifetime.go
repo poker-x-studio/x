@@ -12,18 +12,19 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// LifeTime 生命周期
 type LifeTime struct {
 	start_timestamp int64 //开始时间戳
 	end_timestamp   int64 //结束时间戳
 }
 
-// 开始
+// Start 开始
 func (l *LifeTime) Start() {
 	l.start_timestamp = time.Now().Unix()
 	logrus.Tracef("start_timestamp:%d", l.start_timestamp)
 }
 
-// 结束
+// End 结束
 func (l *LifeTime) End() {
 	l.end_timestamp = time.Now().Unix()
 	logrus.Tracef("end_timestamp:%d,%s", l.end_timestamp, l.string())

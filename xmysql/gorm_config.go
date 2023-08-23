@@ -12,7 +12,7 @@ import (
 	"gorm.io/gorm/logger"
 )
 
-// 打开gorm连接池，并且配置
+// Open_gorm_config_conn_pool 打开gorm连接池,并且配置
 func Open_gorm_config_conn_pool(source string, mysql_logger logger.Interface, option *GormOption) (*gorm.DB, func(), error) {
 	//连接池
 	db, close_handler, err := open_gorm(source, mysql_logger)
@@ -35,7 +35,7 @@ func Open_gorm_config_conn_pool(source string, mysql_logger logger.Interface, op
 	return db, close_handler, nil
 }
 
-// 打开gorm连接池
+// open_gorm 打开gorm连接池
 func open_gorm(source string, mysql_logger logger.Interface) (*gorm.DB, func(), error) {
 	// charset=utf8&parseTime=True&loc=Local
 	// if !strings.Contains(source, "?") {

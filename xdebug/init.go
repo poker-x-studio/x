@@ -12,7 +12,7 @@ func init() {
 	//Get_sys_info()
 }
 
-// logrus日志初始化设置
+// Init_logrus logrus日志初始化设置
 func Init_logrus() {
 	if Is_debug() {
 		logrus.SetLevel(logrus.TraceLevel)

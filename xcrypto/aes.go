@@ -15,7 +15,7 @@ const (
 	AES_KEY = "27ad84xd62e27fe6" //128bit[16byte]
 )
 
-// @brief:AES加密
+// AesEncrypt AES加密
 func AesEncrypt(origData []byte) ([]byte, error) {
 	key := aes_key()
 
@@ -33,7 +33,7 @@ func AesEncrypt(origData []byte) ([]byte, error) {
 	return crypted, nil
 }
 
-// @brief:AES解密
+// AesDecrypt AES解密
 func AesDecrypt(crypted []byte) ([]byte, error) {
 	key := aes_key()
 	block, err := aes.NewCipher(key)

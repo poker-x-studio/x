@@ -9,6 +9,7 @@ import (
 	"encoding/hex"
 )
 
+// MD5 md5加密,32位输出
 func MD5(datas []byte) string {
 	h := md5.New()
 	h.Write(datas)

@@ -6,7 +6,7 @@ package xdebug
 
 import "github.com/petermattis/goid"
 
-// 得到goroutine的id
+// Go_id 得到goroutine的id
 func Go_id() int64 {
 	return goid.Get()
 }

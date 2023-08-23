@@ -4,24 +4,25 @@
 */
 package xdone
 
+//DoneChannel 完成通道
 type DoneChannel struct {
 	ch chan struct{}
 }
 
-// 初始化
+// init 初始化
 func (d *DoneChannel) init() {
 	if d.ch == nil {
 		d.ch = make(chan struct{}, 1)
 	}
 }
 
-// 完成
+// Done 返回完成chan
 func (d *DoneChannel) Done() <-chan struct{} {
 	d.init()
 	return d.ch
 }
 
-// 通知结束
+// Notify_done 通知结束
 func (d *DoneChannel) Notify_done() {
 	d.init()
 	go func() {
@@ -29,7 +30,7 @@ func (d *DoneChannel) Notify_done() {
 	}()
 }
 
-// 关闭
+// Close 关闭
 func (d *DoneChannel) Close() {
 	if d.ch == nil {
 		return

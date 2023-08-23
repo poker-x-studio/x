@@ -24,7 +24,7 @@ const (
 	Inkscape_ubuntu  = "inkscape"
 )
 
-// 得到路径
+// get_inkscape 得到路径
 func get_inkscape() string {
 	inkscape := Inkscape_windows
 	if runtime.GOOS == xutils.WINDOWS {

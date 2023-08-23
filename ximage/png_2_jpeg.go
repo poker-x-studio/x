@@ -16,7 +16,7 @@ const (
 	JPEG_QUALITY = 95 //jpeg品质
 )
 
-// png转jpeg
+// Png_2_jpeg png转jpeg
 func Png_2_jpeg(png_filepath string) (string, error) {
 	file, err := os.Open(png_filepath)
 	if err != nil {

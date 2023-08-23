@@ -30,6 +30,7 @@ const (
 	GRPC_PORT  = 50051 //端口
 )
 
+// Transaction trx转账交易
 func Transaction(addr_from string, private_key_from string, addr_to string) (string, error) {
 	xlog_entry := xlog.New_entry(xdebug.Funcname())
 	node_ips := []string{

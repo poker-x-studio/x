@@ -20,12 +20,12 @@ const (
 	TAG = "TAG"
 )
 
-// 设置日志等级
+// Set_level 设置日志等级
 func Set_level() {
 	logrus.SetLevel(get_level())
 }
 
-// 获取等级
+// get_level 获取等级
 func get_level() logrus.Level {
 	//所有debug标志统一在xdebug中设置
 	if xdebug.Is_debug() {
@@ -34,7 +34,7 @@ func get_level() logrus.Level {
 	return logrus.InfoLevel
 }
 
-// 初始化logrus
+// Init_logrus 初始化logrus
 func Init_logrus(filename string) {
 	//logrus.SetReportCaller(true) //输出文件，调用函数，行数，
 	logrus.SetFormatter(&logrus.TextFormatter{
@@ -54,6 +54,7 @@ func Init_logrus(filename string) {
 	logrus.Info("init")
 }
 
+// New_entry 新的入口
 func New_entry(format string, a ...string) *logrus.Entry {
 	tag := format
 	if len(a) > 0 {
@@ -64,6 +65,7 @@ func New_entry(format string, a ...string) *logrus.Entry {
 	})
 }
 
+// New_entry_tag 新的入口
 func New_entry_tag(tags ...string) *logrus.Entry {
 	len := len(tags)
 	tag_map := make(map[string]interface{}, 0)
@@ -82,6 +84,7 @@ func New_entry_tag(tags ...string) *logrus.Entry {
 	return logrus.WithFields(logrus.Fields(tag_map))
 }
 
+// New_entry_chat_id 新的入口
 func New_entry_chat_id(tag string, chat_id int64) *logrus.Entry {
 	return logrus.WithFields(logrus.Fields{
 		TAG:       tag,

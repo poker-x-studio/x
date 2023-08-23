@@ -32,6 +32,7 @@ func init() {
 	}
 }
 
+//String 转字符串
 func (s Status) String() string {
 	value, ok := status_map[s]
 	if ok {

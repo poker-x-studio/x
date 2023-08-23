@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-// svg转jpeg
+// Svg_2_jpeg svg转jpeg
 // 删除过渡的临时文件
 func Svg_2_jpeg(content string) (jpg_filepath string, svg_filepath string, err error) {
 	png_filepath := ""

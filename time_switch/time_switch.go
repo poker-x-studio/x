@@ -18,7 +18,7 @@ import (
 	"github.com/poker-x-studio/x/xtime"
 )
 
-// 时间开关
+// TimeSwitch 时间开关
 type TimeSwitch struct {
 	xservice.Service              //
 	stop_time        time.Time    //停止时间,24小时制,比如 3:45,UTC时间,
@@ -28,7 +28,7 @@ type TimeSwitch struct {
 	save_timer       *time.Timer  //保存定时器
 }
 
-// 创建
+// NewTimeSwitch 创建
 func NewTimeSwitch(stop_time string, start_time string, options ...Option) *TimeSwitch {
 	t := &TimeSwitch{}
 	for _, option := range options {
@@ -42,7 +42,7 @@ func NewTimeSwitch(stop_time string, start_time string, options ...Option) *Time
 	return t
 }
 
-// 初始化
+// init 初始化
 func (t *TimeSwitch) init(stop_time string, start_time string) error {
 	xlog_entry := xlog.New_entry(xdebug.Funcname())
 
@@ -69,7 +69,7 @@ func (t *TimeSwitch) init(stop_time string, start_time string) error {
 	return nil
 }
 
-// 服务启动
+// Service_start 服务启动
 func (t *TimeSwitch) Service_start() {
 	if t.Is_running() {
 		return
@@ -79,7 +79,7 @@ func (t *TimeSwitch) Service_start() {
 	t.ready_auto_start()
 }
 
-// 服务停止
+// Service_stop 服务停止
 func (t *TimeSwitch) Service_stop() {
 	if t.Is_dead() {
 		return
@@ -88,7 +88,7 @@ func (t *TimeSwitch) Service_stop() {
 	t.auto_stop()
 }
 
-// 准备自动启动
+// ready_auto_start 准备自动启动
 func (t *TimeSwitch) ready_auto_start() {
 	xlog_entry := xlog.New_entry(xdebug.Funcname())
 	xlog_entry.Info("[TimeSwitch]ready_auto_start,准备自动启动")
@@ -118,7 +118,7 @@ func (t *TimeSwitch) ready_auto_start() {
 	}
 }
 
-// 自动启动
+// auto_start 自动启动
 func (t *TimeSwitch) auto_start() {
 	if t.Is_running() {
 		return
@@ -155,7 +155,7 @@ func (t *TimeSwitch) auto_start() {
 	})
 }
 
-// 自动停止
+// auto_stop 自动停止
 func (t *TimeSwitch) auto_stop() {
 	if t.Is_dead() {
 		return
@@ -184,7 +184,7 @@ func (t *TimeSwitch) auto_stop() {
 	})
 }
 
-// 人工启动
+// Manual_start 人工启动
 func (t *TimeSwitch) Manual_start() {
 	if t.Is_running() {
 		return
@@ -201,7 +201,7 @@ func (t *TimeSwitch) Manual_start() {
 	}
 }
 
-// 人工停止
+// Manual_stop 人工停止
 func (t *TimeSwitch) Manual_stop() {
 	if t.Is_dead() {
 		return
@@ -217,7 +217,7 @@ func (t *TimeSwitch) Manual_stop() {
 	}
 }
 
-// 销毁定时器
+// kill_timer 销毁定时器
 func (t *TimeSwitch) kill_timer() {
 	if t.save_timer != nil {
 		t.save_timer.Stop()

@@ -14,7 +14,7 @@ import (
 	"github.com/poker-x-studio/x/xutils"
 )
 
-// 解析时间
+// Time_parse 解析时间
 // 格式要求 12:30 或 10:00 或 0:00 或 23:00
 func Time_parse(t string) (*time.Time, error) {
 	txts := strings.Split(t, ":")

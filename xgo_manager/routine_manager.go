@@ -12,6 +12,7 @@ import (
 	"github.com/poker-x-studio/x/xservice"
 )
 
+// xGoManager goroutine管理
 type xGoManager struct {
 	xgo_map map[int64]*xGo //key为goid
 	wg      sync.WaitGroup //
@@ -21,7 +22,7 @@ type xGoManager struct {
 var once sync.Once
 var instance *xGoManager
 
-// 单例
+// Instance 单例
 func Instance() *xGoManager {
 	once.Do(func() {
 		if instance == nil {
@@ -32,12 +33,12 @@ func Instance() *xGoManager {
 	return instance
 }
 
-// 初始化
+// init 初始化
 func (mgr *xGoManager) init() {
 	mgr.xgo_map = make(map[int64]*xGo, 0)
 }
 
-// 运行goroutine
+// Go 运行goroutine
 func (mgr *xGoManager) Go(f func()) {
 	mgr.mutex.Lock()
 	defer mgr.mutex.Unlock()
@@ -66,7 +67,7 @@ func (mgr *xGoManager) Go(f func()) {
 	close(ch)
 }
 
-// 结束了一个goroutine
+// Dead 结束了一个goroutine
 func (mgr *xGoManager) Dead(goid int64) {
 	mgr.mutex.Lock()
 	defer mgr.mutex.Unlock()
@@ -84,7 +85,7 @@ func (mgr *xGoManager) Dead(goid int64) {
 	mgr.wg.Done()
 }
 
-// 通知结束所有goroutine
+// Notify_all_dead 通知结束所有goroutine
 func (mgr *xGoManager) Notify_all_dead() {
 	mgr.mutex.Lock()
 	defer mgr.mutex.Unlock()
@@ -101,7 +102,7 @@ func (mgr *xGoManager) Notify_all_dead() {
 	}()
 }
 
-// 结束的通道
+// Done 结束的通道
 func (mgr *xGoManager) Done(goid int64) <-chan struct{} {
 	mgr.mutex.Lock()
 	defer mgr.mutex.Unlock()
@@ -114,7 +115,7 @@ func (mgr *xGoManager) Done(goid int64) <-chan struct{} {
 	return xgo.done.Done()
 }
 
-// 调试输出
+// print 调试输出
 func (mgr *xGoManager) print() {
 	for _, v := range mgr.xgo_map {
 		fmt.Println(v.String())

@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// mysql事务
+// Mysql_transaction mysql事务
 func Mysql_transaction(db *gorm.DB, transFunc func(*gorm.DB) error) (err error) {
 	tx := db.Begin()
 	err = errors.New("transaction begin")

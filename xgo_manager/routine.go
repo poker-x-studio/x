@@ -13,6 +13,7 @@ import (
 
 type GoHandler func()
 
+// xGo goroutine信息
 type xGo struct {
 	go_handler GoHandler         //handler
 	goid       int64             //id
@@ -20,6 +21,7 @@ type xGo struct {
 	done       xdone.DoneChannel //停止channel
 }
 
+// String 转化为字符串
 func (g *xGo) String() string {
 	return fmt.Sprintf("[xGo,goid:%d,status:%s,done:%+v]", g.goid, g.status.String(), g.done)
 }

@@ -16,17 +16,17 @@ const (
 	FUNC_EXIT  = "退出函数"
 )
 
-//设置发布模式
+//Set_release 设置发布模式
 func Set_release() {
 	is_debug = false
 }
 
-// 是否调试模式
+// Is_debug 是否调试模式
 func Is_debug() bool {
 	return is_debug
 }
 
-// 调用函数名
+// Funcname 调用函数名
 func Funcname() string {
 	pc := make([]uintptr, 1)
 	runtime.Callers(2, pc)

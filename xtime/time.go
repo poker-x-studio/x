@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// 秒转小时分钟
+// Seconds_2_hh_mm 秒转小时分钟
 func Seconds_2_hh_mm(seconds int) (int, int) {
 	h := seconds / 3600
 	m := (seconds - h*3600) / 60
@@ -27,7 +27,7 @@ func Seconds_2_hh_mm(seconds int) (int, int) {
 	}
 */
 
-// 时间戳转utc时间
+// Timestamp_2_utc_time 时间戳转utc时间
 func Timestamp_2_utc_time(timestamp int64) time.Time {
 	//const func_tag = "Timestamp_2_utc_time(),"
 

@@ -12,7 +12,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-// OpenRedis ...
+// OpenRedis 开启redis连接池
 func OpenRedis(addr string, password string, db int) (*redis.Pool, error) {
 	// 连接 redis
 	rp := new(redis.Pool)
@@ -57,13 +57,14 @@ func OpenRedis(addr string, password string, db int) (*redis.Pool, error) {
 	return rp, nil
 }
 
+// CloseRedis 关闭redis连接池
 func CloseRedis(rp *redis.Pool) {
 	if rp != nil {
 		rp.Close()
 	}
 }
 
-// 设置key生命周期
+// SetKeyExpire 设置key生命周期
 func SetKeyExpire(rp *redis.Pool, key string, expire time.Duration) error {
 	conn := rp.Get()
 	defer conn.Close()
@@ -73,7 +74,7 @@ func SetKeyExpire(rp *redis.Pool, key string, expire time.Duration) error {
 	return err
 }
 
-// 删除key
+// DelKey 删除key
 func DelKey(rp *redis.Pool, key string) error {
 	conn := rp.Get()
 	defer conn.Close()
@@ -82,7 +83,7 @@ func DelKey(rp *redis.Pool, key string) error {
 	return err
 }
 
-// 是否存在key
+// ExistsKey 是否存在key
 func ExistsKey(rp *redis.Pool, key string) (int, error) {
 	conn := rp.Get()
 	defer conn.Close()

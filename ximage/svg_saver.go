@@ -13,7 +13,7 @@ import (
 	"github.com/poker-x-studio/x/xpath"
 )
 
-// 存储svg文件
+// svg_file_saver 存储svg文件
 func svg_file_saver(content string) (string, error) {
 	current_dir, err := os.Getwd()
 	if err != nil {

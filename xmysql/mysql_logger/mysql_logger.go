@@ -17,7 +17,7 @@ import (
 	"gorm.io/gorm/logger"
 )
 
-// 创建文件
+// New_mysql_logger 创建文件
 func New_mysql_logger(filename string) (logger.Interface, func(), error) {
 	log_level := logger.Warn //release日志等级3
 	if xdebug.Is_debug() {   //debug日志等级4

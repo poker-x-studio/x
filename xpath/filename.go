@@ -15,7 +15,7 @@ const (
 	ALL_CHARS = "abcdefghijklmnopqrstuvwxyz0123456789"
 )
 
-// 随机文件名
+// Rand_filename 随机文件名
 func Rand_filename(length int) string {
 	if length < 1 {
 		return ""
@@ -30,7 +30,7 @@ func Rand_filename(length int) string {
 	return txt
 }
 
-// 日期文件名
+// Date_filename 日期文件名
 func Date_filename() string {
 	//当前时区时间
 	time := time.Now()

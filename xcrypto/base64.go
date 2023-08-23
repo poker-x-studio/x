@@ -6,12 +6,12 @@ package xcrypto
 
 import "encoding/base64"
 
-// 编码
+// Base64_encode 编码
 func Base64_encode(src []byte) string {
 	return base64.StdEncoding.EncodeToString(src)
 }
 
-// 解码
+// Base64_decode 解码
 func Base64_decode(src string) ([]byte, error) {
 	return base64.StdEncoding.DecodeString(src)
 }

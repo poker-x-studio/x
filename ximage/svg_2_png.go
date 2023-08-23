@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-// svg转png
+// Svg_2_png svg转png
 func Svg_2_png(content string) (png_filepath string, svg_filepath string, err error) {
 	svg_filepath, err = svg_file_saver(content)
 	if err != nil {
@@ -29,7 +29,7 @@ func Svg_2_png(content string) (png_filepath string, svg_filepath string, err er
 	return
 }
 
-// 转png
+// svg_2_png 转png
 func svg_2_png(inkscape_executable string, svg_filepath string) (string, error) {
 	cmd := exec.Command(inkscape_executable, "--export-type=png", svg_filepath)
 	err := cmd.Run()

@@ -4,7 +4,7 @@
 */
 package xutils
 
-// 是否包含
+// Is_contains 是否包含
 func Is_contains[T byte | int | int32 | int64](all []T, element T) bool {
 	if all == nil {
 		return false
@@ -17,7 +17,7 @@ func Is_contains[T byte | int | int32 | int64](all []T, element T) bool {
 	return false
 }
 
-// 插入
+// Slice_insert 插入
 func Slice_insert[T byte | int](all []T, index int, data T) []T {
 	new_all := make([]T, 0)
 	if index == len(all) { //插入最后

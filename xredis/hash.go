@@ -17,6 +17,7 @@ type Field_value struct {
 	Value string
 }
 
+// HDel
 // Function:Hdel 命令用于删除哈希表 key 中的一个或多个指定字段，不存在的字段将被忽略。
 // Description:HDEL KEY_NAME FIELD1.. FIELDN
 // Return:被成功删除字段的数量，不包括被忽略的字段。

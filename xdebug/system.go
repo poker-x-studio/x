@@ -33,7 +33,7 @@ type LSysInfo struct {
 	CpuCores       int
 }
 
-// 获取系统信息
+// Get_sys_info 获取系统信息
 func Get_sys_info() (info LSysInfo) {
 	unit := uint64(1024 * 1024) // MB
 
@@ -76,7 +76,7 @@ func Get_sys_info() (info LSysInfo) {
 	return
 }
 
-// 启动输出
+// startup_output 启动输出
 func startup_output() {
 	c, _ := cpu.Info()
 	cc, _ := cpu.Percent(time.Second, false) // 1秒

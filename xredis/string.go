@@ -10,7 +10,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-// 设置字符串
+// SetString 设置字符串
 func SetString(rp *redis.Pool, key, value string) error {
 	conn := rp.Get()
 	defer conn.Close()
@@ -19,7 +19,7 @@ func SetString(rp *redis.Pool, key, value string) error {
 	return err
 }
 
-// 设置字符串-有效期
+// SetStringEx 设置字符串-有效期
 func SetStringEx(rp *redis.Pool, key, value string, expire time.Duration) error {
 	conn := rp.Get()
 	defer conn.Close()
@@ -29,6 +29,7 @@ func SetStringEx(rp *redis.Pool, key, value string, expire time.Duration) error 
 	return err
 }
 
+// GetString 获取字符串
 func GetString(rp *redis.Pool, key string) (string, error) {
 	conn := rp.Get()
 	defer conn.Close()
@@ -36,7 +37,7 @@ func GetString(rp *redis.Pool, key string) (string, error) {
 	return redis.String(conn.Do("GET", key))
 }
 
-// 设置整数
+// SetInt 设置整数
 func SetInt(rp *redis.Pool, key string, value int) error {
 	conn := rp.Get()
 	defer conn.Close()
@@ -45,7 +46,7 @@ func SetInt(rp *redis.Pool, key string, value int) error {
 	return err
 }
 
-// 设置整数-有效期
+// SetIntEx 设置整数-有效期
 func SetIntEx(rp *redis.Pool, key string, value int, expire time.Duration) error {
 	conn := rp.Get()
 	defer conn.Close()
@@ -55,6 +56,7 @@ func SetIntEx(rp *redis.Pool, key string, value int, expire time.Duration) error
 	return err
 }
 
+// GetInt 获取整数
 func GetInt(rp *redis.Pool, key string) (int, error) {
 	conn := rp.Get()
 	defer conn.Close()

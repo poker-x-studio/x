@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-// svg转pdf
+// Svg_2_pdf svg转pdf
 func Svg_2_pdf(content string) (pdf_filepath string, svg_filepath string, err error) {
 	svg_filepath, err = svg_file_saver(content)
 	if err != nil {
@@ -29,7 +29,7 @@ func Svg_2_pdf(content string) (pdf_filepath string, svg_filepath string, err er
 	return
 }
 
-// 转pdf
+// svg_2_pdf 转pdf
 func svg_2_pdf(inkscape_executable string, svg_filepath string) (string, error) {
 	cmd := exec.Command(inkscape_executable, "--export-type=pdf", svg_filepath)
 	err := cmd.Run()
