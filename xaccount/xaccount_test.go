@@ -15,6 +15,9 @@ func Test_1(t *testing.T) {
 }
 func Test_2(t *testing.T) {
 	fmt.Println(Salt(5))
+
+	fmt.Println(Check_email("dddddadasf@gg.net"))
+
 }
 
 //-----------------------------------------------
