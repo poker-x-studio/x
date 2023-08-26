@@ -5,12 +5,26 @@
 */
 package xaccount
 
-import "regexp"
+import (
+	"fmt"
+	"regexp"
+)
 
 // Check_account 校验帐号
-func Check_account(account string) bool {
-	is_matched, _ := regexp.MatchString("^[0-9A-Za-z_]{6,16}$", account)
-	return is_matched
+func Check_account(account string, min_len int, max_len int) (bool, error) {
+	len := len(account)
+	if len < min_len {
+		return false, fmt.Errorf("错误,账号最小长度为%d", min_len)
+	}
+	if len > max_len {
+		return false, fmt.Errorf("错误,账号最大长度为%d", max_len)
+	}
+	pattern := fmt.Sprintf("^[0-9A-Za-z_]{%d,%d}$", min_len, max_len)
+	matched, _ := regexp.MatchString(pattern, account)
+	if !matched {
+		return false, fmt.Errorf("错误,账号不合乎当前规则")
+	}
+	return matched, nil
 }
 
 // Check_nickname 校验昵称
@@ -19,9 +33,20 @@ func Check_nickname(nickname string) bool {
 }
 
 // Check_pwd 校验密码
-func Check_pwd(pwd string) bool {
-	is_matched, _ := regexp.MatchString("^[0-9A-Za-z_]{6,16}$", pwd)
-	return is_matched
+func Check_pwd(pwd string, min_len int, max_len int) (bool, error) {
+	len := len(pwd)
+	if len < min_len {
+		return false, fmt.Errorf("错误,密码最小长度为%d", min_len)
+	}
+	if len > max_len {
+		return false, fmt.Errorf("错误,密码最大长度为%d", max_len)
+	}
+	pattern := fmt.Sprintf("^[0-9A-Za-z_]{%d,%d}$", min_len, max_len)
+	matched, _ := regexp.MatchString(pattern, pwd)
+	if !matched {
+		return false, fmt.Errorf("错误,密码不合乎当前规则")
+	}
+	return matched, nil
 }
 
 // Check_phone 校验手机号
