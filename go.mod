@@ -6,11 +6,8 @@ require (
 	github.com/JFJun/trx-sign-go v1.0.3
 	github.com/LyricTian/queue v1.3.0
 	github.com/btcsuite/btcd v0.21.0-beta
-	github.com/btcsuite/btcutil v1.0.2
 	github.com/ethereum/go-ethereum v1.12.2
-	github.com/fatih/structs v1.1.0
 	github.com/fbsobreira/gotron-sdk v0.0.0-20230714102740-d3204bd08259
-	github.com/golang/protobuf v1.5.3
 	github.com/gomodule/redigo v1.8.9
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/petermattis/goid v0.0.0-20230808133559-b036b712a89b
@@ -48,6 +45,7 @@ require (
 	github.com/godzie44/go-uring v0.0.0-20220926161041-69611e8b13d5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/mock v1.6.0 // indirect
+	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.5-0.20220116011046-fa5810519dcb // indirect
 	github.com/google/pprof v0.0.0-20230228050547-1710fef4ab10 // indirect
 	github.com/google/uuid v1.3.0 // indirect

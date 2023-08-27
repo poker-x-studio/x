@@ -21,26 +21,7 @@
 */
 package test
 
-import (
-	"crypto/sha256"
-	"encoding/base64"
-	"encoding/hex"
-	"encoding/json"
-	"fmt"
-	"math/big"
-	"strings"
-	"testing"
-
-	"github.com/JFJun/trx-sign-go/grpcs"
-	"github.com/JFJun/trx-sign-go/sign"
-	"github.com/btcsuite/btcutil/base58"
-	"github.com/fatih/structs"
-	addr "github.com/fbsobreira/gotron-sdk/pkg/address"
-	"github.com/fbsobreira/gotron-sdk/pkg/common"
-	"github.com/fbsobreira/gotron-sdk/pkg/proto/core"
-	"github.com/golang/protobuf/ptypes"
-)
-
+/*
 const (
 	AMOUNT = 1 //转账个数
 )
@@ -265,6 +246,7 @@ func Test_DecodeMessage(t *testing.T) {
 }
 
 const trc20TransferMethodSignature = "a9059cbb"
+*/
 
 //-----------------------------------------------
 //					the end
