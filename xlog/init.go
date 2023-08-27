@@ -20,7 +20,7 @@ const (
 	TAG = "TAG"
 )
 
-// Set_level 设置日志等级
+// set_level 设置日志等级
 func set_level() {
 	logrus.SetLevel(get_level())
 }
