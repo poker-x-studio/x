@@ -21,7 +21,7 @@ const (
 )
 
 // Set_level 设置日志等级
-func Set_level() {
+func set_level() {
 	logrus.SetLevel(get_level())
 }
 
@@ -36,6 +36,8 @@ func get_level() logrus.Level {
 
 // Init_logrus 初始化logrus
 func Init_logrus(filename string) {
+	set_level()
+
 	//logrus.SetReportCaller(true) //输出文件，调用函数，行数，
 	logrus.SetFormatter(&logrus.TextFormatter{
 		TimestampFormat: "2006-01-02 15:04:05", //时间格式
