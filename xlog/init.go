@@ -20,40 +20,29 @@ const (
 	TAG = "TAG"
 )
 
-// set_level 设置日志等级
-func set_level() {
-	logrus.SetLevel(get_level())
-}
-
-// get_level 获取等级
-func get_level() logrus.Level {
-	//所有debug标志统一在xdebug中设置
-	if xdebug.Is_debug() {
-		return logrus.TraceLevel
-	}
-	return logrus.InfoLevel
-}
-
 // Init_logrus 初始化logrus
 func Init_logrus(filename string) {
+	//创建文件夹
+	exe_dir := xpath.Executable_dir()
+	log_dir := path.Join(exe_dir, xutils.LOG_FOLDER)
+	xpath.Mkdir(log_dir)
+
+	//日志等级
 	set_level()
 
-	//logrus.SetReportCaller(true) //输出文件，调用函数，行数，
+	if xdebug.Is_debug() {
+		//输出文件,调用函数,行数
+		logrus.SetReportCaller(true)
+	}
 	logrus.SetFormatter(&logrus.TextFormatter{
 		TimestampFormat: "2006-01-02 15:04:05", //时间格式
 		FullTimestamp:   true,
 	})
 
-	executable_dir := xpath.Executable_dir()
-	log_dir := path.Join(executable_dir, xutils.LOG_FOLDER)
-
-	//创建文件夹
-	xpath.Mkdir(log_dir)
-
 	log_level := logrus.GetLevel()
 	AddLocalFileHook(log_dir, filename, "", nil, log_level)
 
-	logrus.Info("init")
+	logrus.Info("logurs init")
 }
 
 // New_entry 新的入口
