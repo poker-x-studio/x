@@ -23,8 +23,8 @@ type TimeSwitch struct {
 	xservice.Service              //
 	stop_time        time.Time    //停止时间,24小时制,比如 3:45,UTC时间,
 	start_time       time.Time    //开始时间,24小时制,比如 4:45,UTC时间,必须满足stop_time<start_time
-	handler_stop     HandlerStop  //停止函数
-	handler_start    HandlerStart //开始函数
+	stop_handler     StopHandler  //停止函数
+	start_handler    StartHandler //开始函数
 	save_timer       *time.Timer  //保存定时器
 }
 
@@ -127,8 +127,8 @@ func (t *TimeSwitch) auto_start() {
 	xlog_entry := xlog.New_entry(xdebug.Funcname())
 	xlog_entry.Info("[TimeSwitch]auto_start,自动启动")
 
-	if t.handler_start != nil {
-		t.handler_start()
+	if t.start_handler != nil {
+		t.start_handler()
 		t.Update_status(xservice.STATUS_RUNNING)
 	}
 
@@ -164,8 +164,8 @@ func (t *TimeSwitch) auto_stop() {
 	xlog_entry := xlog.New_entry(xdebug.Funcname())
 	xlog_entry.Info("[TimeSwitch]auto_stop,自动停止")
 
-	if t.handler_stop != nil {
-		t.handler_stop()
+	if t.stop_handler != nil {
+		t.stop_handler()
 		t.Update_status(xservice.STATUS_DEAD)
 	}
 
@@ -195,8 +195,8 @@ func (t *TimeSwitch) Manual_start() {
 
 	t.kill_timer()
 
-	if t.handler_start != nil {
-		t.handler_start()
+	if t.start_handler != nil {
+		t.start_handler()
 		t.Update_status(xservice.STATUS_RUNNING)
 	}
 }
@@ -211,8 +211,8 @@ func (t *TimeSwitch) Manual_stop() {
 
 	t.kill_timer()
 
-	if t.handler_stop != nil {
-		t.handler_stop()
+	if t.stop_handler != nil {
+		t.stop_handler()
 		t.Update_status(xservice.STATUS_DEAD)
 	}
 }

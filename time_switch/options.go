@@ -4,22 +4,22 @@
 */
 package time_switch
 
-type HandlerStart func() //开启函数
-type HandlerStop func()  //停止函数
+type StartHandler func() //开启函数
+type StopHandler func()  //停止函数
 
 type Option func(*TimeSwitch)
 
 //WithStopHandler 停止函数
-func WithStopHandler(stop HandlerStop) Option {
+func WithStopHandler(stop StopHandler) Option {
 	return func(t *TimeSwitch) {
-		t.handler_stop = stop
+		t.stop_handler = stop
 	}
 }
 
 //WithStarHandler 开启函数
-func WithStarHandler(start HandlerStart) Option {
+func WithStarHandler(start StartHandler) Option {
 	return func(t *TimeSwitch) {
-		t.handler_start = start
+		t.start_handler = start
 	}
 }
 
