@@ -4,7 +4,7 @@
 */
 package xdone
 
-//DoneChannel 完成通道
+// DoneChannel 完成通道
 type DoneChannel struct {
 	ch chan struct{}
 }

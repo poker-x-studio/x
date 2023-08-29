@@ -2,7 +2,7 @@
 功能：salt
 说明：
 */
-package xaccount
+package xverify
 
 import (
 	"math/rand"

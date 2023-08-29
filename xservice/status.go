@@ -13,26 +13,26 @@ const (
 	STATUS_DEAD    Status = 2 //关闭
 )
 
-type value struct {
+type item struct {
 	satus Status
 	txt   string
 }
 
-var status_map map[Status]value
+var status_map map[Status]item
 
 func init() {
-	values := []value{
+	items := []item{
 		{STATUS_NIL, "nil"},
 		{STATUS_RUNNING, "running"},
 		{STATUS_DEAD, "dead"},
 	}
-	status_map = make(map[Status]value, 0)
-	for _, v := range values {
+	status_map = make(map[Status]item, 0)
+	for _, v := range items {
 		status_map[v.satus] = v
 	}
 }
 
-//String 转字符串
+// String 转字符串
 func (s Status) String() string {
 	value, ok := status_map[s]
 	if ok {

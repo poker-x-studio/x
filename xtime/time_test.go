@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func TestXxx(t *testing.T) {
+func Test_1(t *testing.T) {
 	tm := "12:30"
 	tm = "23:00"
 	//tm = "0:00"
@@ -27,7 +27,7 @@ func TestXxx(t *testing.T) {
 	*/
 }
 
-func TestXxx1(t *testing.T) {
+func Test_2(t *testing.T) {
 
 	// Add 时间相加
 	now := time.Now()
