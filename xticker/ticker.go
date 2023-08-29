@@ -15,7 +15,7 @@ import (
 	"github.com/poker-x-studio/x/xservice"
 )
 
-// 接口
+// ITickerHandler 计时器处理接口
 type ITickerHandler interface {
 	On_ticker(ticker_count int) TICKER_COUNT_TYPE
 }
@@ -42,7 +42,7 @@ func NewTicker(i_ticker_handler ITickerHandler, duration int) *Ticker {
 	return ticker
 }
 
-// 服务开始
+// Service_start 服务开始
 func (t *Ticker) Service_start(ticker_count int) error {
 	if t.i_ticker_handler == nil {
 		return fmt.Errorf("计时器,接口设置错误")
@@ -66,7 +66,7 @@ func (t *Ticker) Service_start(ticker_count int) error {
 	return nil
 }
 
-// ticker处理
+// ticker_handle ticker处理
 func (t *Ticker) ticker_handle() {
 	xlog_entry := xlog.New_entry(xdebug.Funcname())
 	xlog_entry.Tracef("[Ticker],goid:%d", xdebug.Go_id())
@@ -97,17 +97,16 @@ func (t *Ticker) ticker_handle() {
 	}
 }
 
-// 服务停止
+// Service_stop 服务停止
 // 必须新开goroutine来关闭
 // 如果不新开goroutine的话，调用方可能在 _ticker_handle 中的计时器处理函数
 // 直接调用Service_stop()，导致 同一个goroutine 一个读 stop_ch，一个写 stop_ch
 // 形成死锁
-func (t *Ticker) Service_stop() error {
+func (t *Ticker) Service_stop() {
 	go t.service_stop()
-	return nil
 }
 
-// 服务停止
+// service_stop 服务停止
 func (t *Ticker) service_stop() error {
 	if t.Is_dead() {
 		return fmt.Errorf("计时器,服务已经关闭")
@@ -120,7 +119,7 @@ func (t *Ticker) service_stop() error {
 	return nil
 }
 
-// 计时器停止(内部处理函数)
+// stop 计时器停止(内部处理函数)
 func (t *Ticker) stop() {
 	fmt.Printf("[Ticker],stop(),t.index:%d,goid:%d\r\n", t.index, xdebug.Go_id())
 
