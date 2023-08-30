@@ -45,13 +45,6 @@ func Test_pwd(t *testing.T) {
 	fmt.Println(matched)
 }
 
-func Test_2(t *testing.T) {
-	fmt.Println(Salt(5))
-
-	fmt.Println(Verify_email("dddddadasf@gg.net"))
-
-}
-
 //-----------------------------------------------
 //					the end
 //-----------------------------------------------
