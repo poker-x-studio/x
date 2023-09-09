@@ -19,8 +19,10 @@ type xGoManager struct {
 	mutex   sync.Mutex
 }
 
-var once sync.Once
-var instance *xGoManager
+var (
+	once     sync.Once
+	instance *xGoManager
+)
 
 // Instance 单例
 func Instance() *xGoManager {
@@ -43,8 +45,10 @@ func (mgr *xGoManager) Go(f func()) {
 	mgr.mutex.Lock()
 	defer mgr.mutex.Unlock()
 
-	var xgo xGo
-	var goid int64
+	var (
+		xgo  xGo
+		goid int64
+	)
 	ch := make(chan int64)
 
 	defer func() {

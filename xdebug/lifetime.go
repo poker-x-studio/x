@@ -30,7 +30,7 @@ func (l *LifeTime) End() {
 	logrus.Tracef("end_timestamp:%d,%s", l.end_timestamp, l.string())
 }
 
-// 转字符串
+// string 转字符串
 func (l *LifeTime) string() string {
 	diff := l.end_timestamp - l.start_timestamp
 

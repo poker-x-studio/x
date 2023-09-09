@@ -10,8 +10,10 @@ import (
 	"time"
 )
 
-var address = "127.0.0.1:6379"
-var pwd = ""
+var (
+	address = "127.0.0.1:6379"
+	pwd     = ""
+)
 
 func TestRedis(t *testing.T) {
 	rds, err := OpenRedis(address, pwd, 0)
