@@ -34,9 +34,15 @@ func Init_logger(debug bool, filename string) (xutils.HandlerClose, error) {
 	//输出到文件和console
 	writers := io.MultiWriter(os.Stdout, file)
 	log.SetOutput(writers)
+
+	//设置日志等级
 	if debug {
 		log.EnableColor()
+		log.SetLevel(log.DEBUG)
+	} else {
+		log.SetLevel(log.INFO)
 	}
+
 	header := `time=${time_rfc3339_nano} level=${level} file=${long_file} line=${line}`
 	log.SetHeader(header)
 	return close, nil
