@@ -2,7 +2,7 @@
 功能：测试单元
 说明：
 */
-package xverify
+package xutils
 
 import (
 	"fmt"

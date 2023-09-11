@@ -3,7 +3,7 @@
 说明：
 特殊需求表达式 https://c.runoob.com/front-end/854/
 */
-package xverify
+package xutils
 
 import (
 	"fmt"

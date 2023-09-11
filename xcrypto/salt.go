@@ -2,7 +2,7 @@
 功能：salt
 说明：
 */
-package xutils
+package xcrypto
 
 import (
 	"math/rand"
