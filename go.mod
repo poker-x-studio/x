@@ -9,6 +9,7 @@ require (
 	github.com/ethereum/go-ethereum v1.12.2
 	github.com/fbsobreira/gotron-sdk v0.0.0-20230714102740-d3204bd08259
 	github.com/gomodule/redigo v1.8.9
+	github.com/labstack/gommon v0.4.0
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/petermattis/goid v0.0.0-20230808133559-b036b712a89b
 	github.com/prometheus/client_golang v1.16.0
@@ -96,7 +97,9 @@ require (
 	github.com/tklauser/go-sysconf v0.3.11 // indirect
 	github.com/tklauser/numcpus v0.6.0 // indirect
 	github.com/tyler-smith/go-bip39 v1.1.0 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fastrand v1.1.0 // indirect
+	github.com/valyala/fasttemplate v1.2.1 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xtaci/kcp-go v5.4.20+incompatible // indirect
