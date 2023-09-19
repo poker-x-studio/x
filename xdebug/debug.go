@@ -37,8 +37,12 @@ func Funcname() string {
 	return f.Name()
 }
 
-// Assert
+// Assert debug断言
 func Assert(b bool) {
+	if !Is_debug() {
+		return
+	}
+
 	if b {
 		return
 	}
