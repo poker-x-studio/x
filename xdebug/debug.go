@@ -5,7 +5,10 @@
 */
 package xdebug
 
-import "runtime"
+import (
+	"fmt"
+	"runtime"
+)
 
 var (
 	is_debug = true //默认为调试模式
@@ -16,7 +19,7 @@ const (
 	FUNC_EXIT  = "退出函数"
 )
 
-//Set_release 设置发布模式
+// Set_release 设置发布模式
 func Set_release() {
 	is_debug = false
 }
@@ -32,6 +35,16 @@ func Funcname() string {
 	runtime.Callers(2, pc)
 	f := runtime.FuncForPC(pc[0])
 	return f.Name()
+}
+
+// Assert
+func Assert(b bool) {
+	if b {
+		return
+	}
+	msg := "Assert(),false"
+	fmt.Println(msg)
+	panic(msg)
 }
 
 //-----------------------------------------------
