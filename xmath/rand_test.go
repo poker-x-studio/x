@@ -10,8 +10,8 @@ import (
 )
 
 func Test_1(t *testing.T) {
-	r := Intn(100)
-	fmt.Println(r)
+	r, err := Intn(100)
+	fmt.Println(r, err)
 }
 
 //-----------------------------------------------

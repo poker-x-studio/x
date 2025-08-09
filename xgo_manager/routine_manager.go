@@ -107,16 +107,16 @@ func (mgr *xGoManager) Notify_all_dead() {
 }
 
 // Done 结束的通道
-func (mgr *xGoManager) Done(goid int64) <-chan struct{} {
+func (mgr *xGoManager) Done(goid int64) (<-chan struct{}, error) {
 	mgr.mutex.Lock()
 	defer mgr.mutex.Unlock()
 
 	xgo, ok := mgr.xgo_map[goid]
 	if !ok {
-		panic("")
+		return nil, fmt.Errorf("goroutine with id %d not found", goid)
 	}
 	//fmt.Println(xgo.String())
-	return xgo.done.Done()
+	return xgo.done.Done(), nil
 }
 
 // print 调试输出
