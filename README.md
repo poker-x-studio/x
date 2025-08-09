@@ -21,7 +21,7 @@
 - xservice 服务
 - xticker 定时器
 - xtime 时间
-- xutils 便理性封装
+- xutils 便利性封装
 
 ## 二 github比较commit 
 https://github.com/poker-x-studio/x/compare/0534f32a..4f2b00c
